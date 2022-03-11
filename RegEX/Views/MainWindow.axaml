@@ -25,8 +25,8 @@
 			<ColumnDefinition Width="*"></ColumnDefinition>
 			<ColumnDefinition Width="*"></ColumnDefinition>
 		</Grid.ColumnDefinitions>
-		<TextBox Grid.Column="0" Grid.Row="0" AcceptsReturn="True" TextWrapping="Wrap"></TextBox>
-		<TextBox Grid.Column="1" Grid.Row="0" AcceptsReturn="True" TextWrapping="Wrap" Focusable="False"></TextBox>
+		<TextBox Text="{Binding Input}" Grid.Column="0" Grid.Row="0" AcceptsReturn="True" TextWrapping="Wrap" />
+		<TextBox Text="{Binding Output}" Grid.Column="1" Grid.Row="0" AcceptsReturn="True" TextWrapping="Wrap" Focusable="False" />
 		<Button Grid.Column="0" Grid.Row="1" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">Open File</Button>
 		<Button Grid.Column="1" Grid.Row="1" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">Save File</Button>
 		<Button Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">Save File</Button>
