@@ -11,10 +11,12 @@ namespace RegEX.Models
     {
         public string[] GetMatches(string pattern, string input)
         {
-            return new Regex(pattern).Matches(input)
+            Regex rg = new Regex(pattern);
+            return rg.Matches(input)
                 .Cast<Match>()
                 .Select(m => m.Value)
                 .ToArray();
+  
         }
     }
 }

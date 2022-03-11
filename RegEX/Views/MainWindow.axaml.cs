@@ -41,7 +41,9 @@ namespace RegEX.Views
         }
         public void ShowRegexSetWindow(object sender, RoutedEventArgs e)
         {
-            new RegexSetWindow().ShowDialog(this);
+            var dialogWindow = new RegexSetWindow();
+            dialogWindow.FindControl<TextBox>("RegexInputField").Text = (this.DataContext as MainWindowViewModel).Regex;
+            dialogWindow.ShowDialog(this);
         }
 
     }

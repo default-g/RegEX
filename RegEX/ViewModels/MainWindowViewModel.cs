@@ -13,6 +13,7 @@ namespace RegEX.ViewModels
         string input = "";
         string output = "";
         string regex = "";
+        RegExFinder finder = new RegExFinder();
         public MainWindowViewModel()
         {
        
@@ -22,7 +23,7 @@ namespace RegEX.ViewModels
             set
             {
                 this.RaiseAndSetIfChanged(ref input, value);
-                Output = this.Input;
+                this.ChangeOutput();
             }
             get
             {
@@ -40,10 +41,29 @@ namespace RegEX.ViewModels
                 return this.output;
             }
         }
+        public string Regex
+        {
+            set
+            {
+                this.RaiseAndSetIfChanged(ref regex, value);
+                this.ChangeOutput();
+            }
+            get
+            {
+                return this.regex;
+            }
+        }   
         public void ChangeOutput()
         {
-            this.output = this.input;
+            var matches = finder.GetMatches(Regex, Input);
+            String outString = "";
+            foreach (string match in matches)
+            {
+                if (match.Length > 0)
+                    outString += match + "\n";
+            }
 
+            this.Output = outString;
 
         }
 
