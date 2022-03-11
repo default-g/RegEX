@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using System.Text;
 using ReactiveUI;
 using System.Text.RegularExpressions;
-
+using Avalonia.Controls;
+using RegEX.Models;
 
 namespace RegEX.ViewModels
 {
@@ -44,6 +45,18 @@ namespace RegEX.ViewModels
             this.output = this.input;
 
 
+        }
+
+        public void SaveOutputInFile(string path)
+        {
+            var fileIO = new FileConroller();
+            fileIO.Write(this.Output, path);
+        }
+
+        public void ReadFileToInput(string path)
+        {
+            var fileIO = new FileConroller();
+            this.Input = fileIO.Read(path);
         }
     
     }
