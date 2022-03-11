@@ -58,6 +58,7 @@ namespace RegEX.ViewModels
             var fileIO = new FileConroller();
             this.Input = fileIO.Read(path);
         }
+
     
     }
  

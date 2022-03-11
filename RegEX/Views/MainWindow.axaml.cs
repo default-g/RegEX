@@ -1,4 +1,5 @@
 using Avalonia.Controls;
+using Avalonia.Interactivity;
 using RegEX.ViewModels;
 
 namespace RegEX.Views
@@ -34,9 +35,14 @@ namespace RegEX.Views
                 {
                     context.SaveOutputInFile(path);
                 }
+
             };
 
         }
-      
+        public void ShowRegexSetWindow(object sender, RoutedEventArgs e)
+        {
+            new RegexSetWindow().ShowDialog(this);
+        }
+
     }
 }
