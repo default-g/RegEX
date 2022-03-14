@@ -17,8 +17,16 @@ namespace RegEX.Views
             {
                 var context = this.Owner.DataContext as MainWindowViewModel;
                 var inputField = this.FindControl<TextBox>("RegexInputField");
-                context.Regex = inputField.Text;
-                this.CloseWindow();
+                try
+                {
+                    context.Regex = inputField.Text;
+                    this.CloseWindow();
+                } catch (Exception ex)
+                {
+                    inputField.Text = "INVALID REGEX";
+                }
+               
+                
             };
             this.FindControl<Button>("Close").Click += delegate
             {
