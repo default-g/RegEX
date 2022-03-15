@@ -3,6 +3,8 @@ using Avalonia.Controls;
 using Avalonia.Markup.Xaml;
 using RegEX.ViewModels;
 using System;
+using System.Text.RegularExpressions;
+
 namespace RegEX.Views
 {
     public partial class RegexSetWindow : Window
@@ -19,6 +21,7 @@ namespace RegEX.Views
                 var inputField = this.FindControl<TextBox>("RegexInputField");
                 try
                 {
+                    Regex rg = new Regex(inputField.Text);
                     context.Regex = inputField.Text;
                     this.CloseWindow();
                 } catch (Exception ex)
